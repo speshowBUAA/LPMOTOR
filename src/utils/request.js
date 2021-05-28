@@ -52,4 +52,18 @@ const request = extend({
   // default error handling
   credentials: 'include', // Does the default request bring cookies
 });
+
+//添加Header头，JWT认证
+request.interceptors.request.use((url, options) => {
+  const token = 'hello';
+  const headers = {
+    Authorization: `Bear ${token}`
+  }
+
+  return {
+    url,
+    options: { ...options, headers },
+  };
+});
+
 export default request;
