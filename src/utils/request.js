@@ -55,9 +55,10 @@ const request = extend({
 
 //添加Header头，JWT认证
 request.interceptors.request.use((url, options) => {
-  const token = 'hello';
+  const token = localStorage.getItem('access_token') || '';
   const headers = {
-    Authorization: `Bear ${token}`
+    // access_token: `Bear ${token}`
+    access_token: `${token}`
   }
 
   return {

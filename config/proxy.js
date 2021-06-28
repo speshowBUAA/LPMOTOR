@@ -15,6 +15,20 @@ export default {
         '^': '',
       },
     },
+    '/login/': {
+      target: 'http://localhost:3000',
+      changeOrigin: true,
+      pathRewrite: {
+        '^': '',
+      },
+    },
+    '/regist/': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        pathRewrite: {
+          '^': '',
+      },
+    },
   },
   test: {
     '/api/': {
@@ -22,6 +36,20 @@ export default {
       changeOrigin: true,
       pathRewrite: {
         '^': '',
+      },
+    },
+    '/login/': {
+      target: 'http://localhost:3000',
+      changeOrigin: true,
+      pathRewrite: {
+        '^': '',
+      },
+    },
+    '/regist/': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        pathRewrite: {
+          '^': '',
       },
     },
   },

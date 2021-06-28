@@ -10,6 +10,7 @@ import ProForm, { ProFormCaptcha, ProFormCheckbox, ProFormText } from '@ant-desi
 import { useIntl, connect, FormattedMessage } from 'umi';
 import { getFakeCaptcha } from '@/services/login';
 import styles from './index.less';
+import MD5 from 'crypto-js/md5'
 
 const LoginMessage = ({ content }) => (
   <Alert
@@ -30,6 +31,9 @@ const Login = (props) => {
 
   const handleSubmit = (values) => {
     const { dispatch } = props;
+    if(values.password != undefined){
+      values.password = MD5(values.password).toString();
+    }
     dispatch({
       type: 'login/login',
       payload: { ...values, type },
@@ -218,6 +222,7 @@ const Login = (props) => {
             />
           </>
         )}
+
         <div
           style={{
             marginBottom: 24,

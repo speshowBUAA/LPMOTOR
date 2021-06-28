@@ -35,6 +35,18 @@ const UserLayout = (props) => {
 
       <div className={styles.container}>
         <div className={styles.lang}>
+          <Link to="/user/login" 
+          style={{
+            margin: 10,
+          }}>
+            登录
+          </Link>
+          <Link to="/user/regist"
+          style={{
+            margin: 10,
+          }}>
+            注册
+          </Link>
           <SelectLang />
         </div>
         <div className={styles.content}>
