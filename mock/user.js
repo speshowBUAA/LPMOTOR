@@ -85,8 +85,6 @@ export default {
     },
   ],
   'POST /hello': async (req, res) => {
-    console.log(req.body);
-
     res.send({
       status: 'ok',
       currentAuthority: 'guest',

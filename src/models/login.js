@@ -23,13 +23,11 @@ const Model = {
         const params = getPageQuery();
         message.success('🎉 🎉 🎉  登录成功！');
         let { redirect } = params;
-        
         if (redirect) {
           const redirectUrlParams = new URL(redirect);
 
           if (redirectUrlParams.origin === urlParams.origin) {
             redirect = redirect.substr(urlParams.origin.length);
-
             if (window.routerBase !== '/') {
               redirect = redirect.replace(window.routerBase, '/');
             }
@@ -42,7 +40,6 @@ const Model = {
             return;
           }
         }
-
         history.replace(redirect || '/');
       }
     },

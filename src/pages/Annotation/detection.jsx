@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useReducer} from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
 import ReactImageAnnotate from "react-image-annotate"
 import {saveAnnotaions} from '@/services/annotation'
 import { message } from 'antd';
+import { ConsoleSqlOutlined } from '@ant-design/icons';
 
-const Annotation = () => {
+const Annotation = (props) => {
   const requireContext = require.context("../../../images", false, /^\.\/.*\.png$/);
   const Imgs = requireContext.keys().map(requireContext);
 
@@ -32,6 +33,9 @@ const Annotation = () => {
         regionClsList={["background", "car", "cyclist", "pedestrain"]}
         regionTagList={["moving", "obstacle"]}
         images={array}
+        // onNextImage= {(args) => {
+        //   }
+        // }
         onExit= {(args) => {
           let finishFlag = true;
           let index = 0;
